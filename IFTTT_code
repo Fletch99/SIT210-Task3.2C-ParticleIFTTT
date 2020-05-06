@@ -1,0 +1,17 @@
+
+int LightSensor = A0;
+
+void setup() {
+
+
+  pinMode(LightSensor, INPUT);
+  
+}
+void loop() {
+ int lightLevel = analogRead(LightSensor);
+ 
+ if (lightLevel > 1) Particle.publish("Light", "Light", PRIVATE);
+ if (lightLevel < 1) Particle.publish("Light", "No_Light", PRIVATE);
+ 
+  delay(10000); 
+}
